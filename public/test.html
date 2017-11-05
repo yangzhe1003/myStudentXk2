@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试页面</title>
+    <script src="./js/vue.js" charset="utf-8"></script>
+    <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script src="./js/vue-router.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="#/student">页面一</a>
+        <a href="#/class">页面二</a>
+        <a href="#/course">页面三</a>
+
+        <router-view></router-view>
+    </div>
+
+
+    <script type="text/javascript">
+        var Student = {
+            template:`
+                <div>
+                    <h2>{{msg}}</h2>
+                    <p>系统维护中...</p>
+                </div>
+
+            `,
+            data:function () {
+                return {
+                    msg:'学生管理'
+                }
+            }
+        };
+
+        var Class = {
+            template:`
+                <div>
+                    <h2>{{msg}}</h2>
+                    <p>系统维护中...</p>
+                </div>
+            `,
+            data:function () {
+                return {
+                    msg:'班级管理'
+                }
+            }
+        };
+
+        var router = new VueRouter({
+            routes:[{
+                path:'/student',
+                component:Student
+            },{
+                path:'/class',
+                component:Class
+            },]
+
+        });
+
+        new Vue({
+            el:'#app',
+            router:router
+        });
+    </script>
+</body>
+</html>
